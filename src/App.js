@@ -1,24 +1,18 @@
 import React, {useState} from 'react';
-import { Message } from './Message.js'
-import './App.css';
+import Message from './Components/message';
 
-export default function App() {
-  let [count, setCount] = useState(1);
-  let [isMorning, setMorning] = useState(true)
+function App() {
+  
+const [count, setCount] = useState(0)
+return(
 
-  return (
-    <div className={`box ${isMorning ? 'dayLight' : ''}`}>
-      <h1> Good {isMorning ? 'Morning' : 'Night'}</h1>
+  <div>
+      < Message numbers={count} />
+      <button onClick={()=> setCount (count + 1) }>Add My VALUE</button>
+      <button onClick={()=> setCount (count - 1) }>Subtract My VALUE</button>
 
-      <Message counter={count}/>
-      <br />
-      <button onClick={
-        ()=> setCount(count + 1)
-      }>
-        Update Counter
-      </button>
-      
-    <button onClick={()=>setMorning(!isMorning)}>Update Day</button>
-    </div>
-  ) ;
-  }
+
+</div>
+)
+}
+export default App
