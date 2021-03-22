@@ -3,16 +3,28 @@ import Message from './Components/message';
 
 function App() {
   
+// const [isMorning, setMorning] = useState(true)
 const [count, setCount] = useState(0)
-const [isMorning, setMorning] = useState(true)
+
+
+function increament(){
+  setCount (prevCount => prevCount +1 )
+}
+
+function decreament(){
+  setCount (prevCount => prevCount - 1 )
+}
+
+
 
 return(
   <div>
-      < Message numbers={count} />
-      <h1> Good {isMorning ? 'Morning' : 'Night'}</h1>
-      <button onClick={()=> setCount (count + 1) }>Add My VALUE</button>
-      <button onClick={()=> setCount (count - 1) }>Subtract My VALUE</button>
-      <button onClick={()=>setMorning(!isMorning)}>Update Day</button>
+      < Message numbers={count} />      
+      <button onClick={increament}>Add My VALUE</button>
+      <button onClick={decreament}>Subtract My VALUE</button>
+
+      {/* <h1> Good {isMorning ? 'Morning' : 'Night'}</h1> */}
+      {/* <button onClick={setMorning(!isMorning)}>Update Day</button> */}
  </div>
 )
 }
